@@ -7,15 +7,17 @@ articles. It helps assess data feasibility, structure literature evidence,
 review identification and inference, revise claims, prepare referee reports,
 and produce versioned research artifacts.
 
+v0.1 is the first iteration and will be refined through use on real projects.
+
 Core capabilities:
 
 - an early data-feasibility checkpoint before unsupported empirical drafting;
 - literature discovery with claim-level evidence tracking;
 - econometric design and referee-style review;
 - bounded drafting that preserves the supported claim ceiling;
-- guarded public-document retrieval, Zotero item creation, and DOCX output.
-- semantic academic formatting with editable equations and style-preserving
-  manuscript export.
+- guarded public-document retrieval and DOCX output;
+- semantic academic formatting through the standalone `academic-typesetting`
+  plugin when available, with a compact editable-document fallback.
 
 Literature discovery is provider-neutral. A user-configured SerpApi MCP may be
 used as an optional secondary Google Scholar discovery source; it is never a
@@ -26,8 +28,7 @@ user-scope skill path, for example `~/.agents/skills/econ-paper-rigor`.
 
 The skill does not infer that unavailable data or literature does not exist. It
 reports what was checked, marks uninspected full text as `UNVERIFIED`, never
-stores credentials, does not overwrite research outputs silently, and requires
-an explicit confirmation before creating one Zotero bibliographic item.
+stores credentials, and does not overwrite research outputs silently.
 
 ## Scope choices
 

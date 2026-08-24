@@ -22,22 +22,25 @@ Load only the references needed for the current deliverable:
   `references/econometric-review.md`
 - Drafting, revision, and referee reports:
   `references/writing-and-referee.md`
-- Source acquisition, Zotero, DOCX, and release checks:
+- Source acquisition, DOCX, and release checks:
   `references/production-and-references.md`
-- Semantic academic formatting and editable manuscript export in `writing` or
-  `release` work:
-  `references/typesetting-and-formatting.md`
 
-For `writing` work that formats a manuscript or `release` work that exports
-one, load `references/typesetting-and-formatting.md` alongside the applicable
-writing or production reference. Preserve existing styles by default, retain
-editable equations, citation keys, and target-specific cross-reference syntax,
-and report any conversion loss. This route is self-contained and does not
-require the standalone `academic-typesetting` plugin.
+For manuscript formatting or editable export, use `$academic-typesetting` when
+it is available. Otherwise preserve existing styles and use semantic headings,
+emphasis, quotations, lists, tables and captions, citations, notes, editable
+mathematics, citation keys, and target-specific cross-references. Keep complex
+DOCX files Word-native; use Pandoc only for acceptable text-first conversions.
+For editable LaTeX, preserve semantic `.tex` structure and compile only when
+separately requested with an existing toolchain. Inspect exports for conversion
+loss.
 
 Before substantive drafting, state the strongest claim class supported by the
 available evidence. Do not turn missing evidence into negative evidence, and
 do not treat metadata, snippets, or retrieval as claim verification.
+
+Keep Lean and formal proofs, Stata-specific workflows, LLM or human-subject
+experiments, automatic end-to-end execution, Zotero management bridges, and
+heavy internal progress systems outside this skill.
 
 At handoff, report the artifact produced, checks actually performed, the
 evidence ceiling, unresolved issues, and decisions still required from the

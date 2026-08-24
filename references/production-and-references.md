@@ -29,18 +29,9 @@ web and text formats. If reliable extraction or location is impossible, keep
 that limitation explicit. Do not create a separate progress artifact unless
 the user asks to save the list.
 
-## Zotero
-
-Use official Zotero interfaces only. Read-only status and search do not need
-per-call confirmation. A write in v0.1 may create exactly one bibliographic
-item and requires a dry-run payload, deterministic digest, exact duplicate
-check, current library version, and explicit confirmation of that plan.
-
-Do not upload attachments or expose update, delete, trash, purge, bulk,
-arbitrary bridge, or direct database operations. Recheck the digest,
-duplicates, and library version immediately before creation. Keep credentials
-in process or user environment variables and headers, never URLs, files,
-receipts, or output.
+Zotero work is outside this skill's implementation. If separately requested,
+use an available official interface under that request's own authorization;
+do not introduce a bridge or direct database access here.
 
 ## Manuscripts and DOCX
 
@@ -54,6 +45,11 @@ an existing output; select a versioned name. Validate the OOXML structure,
 record input and output hashes in a redacted adjacent receipt, render the result,
 and inspect every page for clipping, broken tables, orphaned headings, and
 spacing or cross-reference problems.
+
+For deterministic local execution, use `scripts/fetch_public_pdf.py` for an
+approved public-PDF target and `scripts/produce_docx.py` for text-first DOCX
+conversion. Load or inspect those helpers only when the matching operation is
+actually requested.
 
 ## Release check
 

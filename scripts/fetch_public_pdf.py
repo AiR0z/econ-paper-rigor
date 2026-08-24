@@ -18,7 +18,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Iterable, Mapping, Protocol
 
-from research_artifacts import atomic_write, canonical_json, ensure_within, sha256_file
+from artifact_utils import atomic_write, canonical_json, ensure_within, sha256_file
 
 
 USER_AGENT = "econ-paper-rigor/0.1"

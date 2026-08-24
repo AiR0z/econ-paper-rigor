@@ -13,7 +13,7 @@ from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
 
-from research_artifacts import (
+from artifact_utils import (
     atomic_write,
     canonical_json,
     ensure_within,

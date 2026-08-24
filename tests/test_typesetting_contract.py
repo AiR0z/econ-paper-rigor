@@ -21,48 +21,26 @@ def element_text(element):
 
 
 class TypesettingContractTests(unittest.TestCase):
-    def test_writing_and_release_route_to_semantic_typesetting_guidance(self):
+    def test_skill_routes_typesetting_with_a_compact_fallback(self):
         root = Path(__file__).resolve().parents[1]
         skill = (root / "SKILL.md").read_text(encoding="utf-8")
-        reference = (
-            root / "references" / "typesetting-and-formatting.md"
-        ).read_text(encoding="utf-8") if (root / "references" / "typesetting-and-formatting.md").exists() else ""
+        normalized = " ".join(skill.split())
 
-        self.assertIn("references/typesetting-and-formatting.md", skill)
-        self.assertIn("writing", skill)
-        self.assertIn("release", skill)
-        self.assertIn("**bold**", reference)
-        self.assertIn("inline and display mathematics", reference.lower())
-        self.assertIn("editable equations", reference.lower())
-        self.assertIn("conversion loss", reference.lower())
-
-    def test_latex_route_preserves_academic_structure_without_requiring_tex(self):
-        """Catches omitting editable .tex output or making compilation mandatory."""
-        root = Path(__file__).resolve().parents[1]
-        reference = (
-            root / "references" / "typesetting-and-formatting.md"
-        ).read_text(encoding="utf-8")
-
-        for required in (
-            "latex",
-            ".tex",
-            "\\section",
-            "\\textbf",
-            "\\emph",
-            "inline math",
-            "display math",
-            "tables",
-            "captions",
-            "\\label",
-            "\\ref",
-            "citations",
-            "\\footnote",
-            "tex distribution",
-            "compilation",
-            "existing toolchain",
+        self.assertIn("use `$academic-typesetting` when", normalized)
+        self.assertIn("semantic headings", normalized)
+        self.assertIn("editable LaTeX", normalized)
+        self.assertIn("target-specific cross-references", normalized)
+        self.assertNotIn("references/typesetting-and-formatting.md", normalized)
+        for excluded in (
+            "Lean and formal proofs",
+            "Stata-specific workflows",
+            "LLM or human-subject experiments",
+            "automatic end-to-end execution",
+            "Zotero management bridges",
+            "heavy internal progress systems",
         ):
-            with self.subTest(required=required):
-                self.assertIn(required, reference.lower())
+            with self.subTest(excluded=excluded):
+                self.assertIn(excluded, normalized)
 
     def test_reference_doc_demonstrates_editable_academic_features(self):
         """Catches replacing semantic Word structures with visual plain text."""
