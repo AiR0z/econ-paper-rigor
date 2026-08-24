@@ -1,0 +1,7 @@
+interface:
+  display_name: "Econ Paper Rigor"
+  short_description: "Rigorous workflows for econometric articles"
+  default_prompt: "Use $econ-paper-rigor to assess the evidence and econometric design for this article."
+
+policy:
+  allow_implicit_invocation: false
