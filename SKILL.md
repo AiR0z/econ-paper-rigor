@@ -24,6 +24,16 @@ Load only the references needed for the current deliverable:
   `references/writing-and-referee.md`
 - Source acquisition, Zotero, DOCX, and release checks:
   `references/production-and-references.md`
+- Semantic academic formatting and editable manuscript export in `writing` or
+  `release` work:
+  `references/typesetting-and-formatting.md`
+
+For `writing` work that formats a manuscript or `release` work that exports
+one, load `references/typesetting-and-formatting.md` alongside the applicable
+writing or production reference. Preserve existing styles by default, retain
+editable equations, citation keys, and target-specific cross-reference syntax,
+and report any conversion loss. This route is self-contained and does not
+require the standalone `academic-typesetting` plugin.
 
 Before substantive drafting, state the strongest claim class supported by the
 available evidence. Do not turn missing evidence into negative evidence, and

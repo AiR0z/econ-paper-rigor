@@ -14,6 +14,8 @@ Core capabilities:
 - econometric design and referee-style review;
 - bounded drafting that preserves the supported claim ceiling;
 - guarded public-document retrieval, Zotero item creation, and DOCX output.
+- semantic academic formatting with editable equations and style-preserving
+  manuscript export.
 
 Literature discovery is provider-neutral. A user-configured SerpApi MCP may be
 used as an optional secondary Google Scholar discovery source; it is never a
