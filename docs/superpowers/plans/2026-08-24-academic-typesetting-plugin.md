@@ -39,7 +39,7 @@
 Run:
 
 ```powershell
-& 'C:\Users\Luka\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' `
+& 'C:\Users\Luka\.agents\skills\econ-paper-rigor\.venv\Scripts\python.exe' `
   'C:\Users\Luka\.codex\skills\.system\plugin-creator\scripts\create_basic_plugin.py' `
   academic-typesetting --with-skills --with-marketplace
 ```
@@ -100,10 +100,10 @@ Run:
 ```powershell
 & 'C:\Users\Luka\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' `
   -m unittest discover -s 'C:\Users\Luka\plugins\academic-typesetting\tests' -v
-& 'C:\Users\Luka\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' `
+& 'C:\Users\Luka\.agents\skills\econ-paper-rigor\.venv\Scripts\python.exe' `
   'C:\Users\Luka\.codex\skills\.system\skill-creator\scripts\quick_validate.py' `
   'C:\Users\Luka\plugins\academic-typesetting\skills\academic-typesetting'
-& 'C:\Users\Luka\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' `
+& 'C:\Users\Luka\.agents\skills\econ-paper-rigor\.venv\Scripts\python.exe' `
   'C:\Users\Luka\.codex\skills\.system\plugin-creator\scripts\validate_plugin.py' `
   'C:\Users\Luka\plugins\academic-typesetting'
 ```
@@ -282,9 +282,9 @@ git commit -m "test: verify DOCX formatting preservation"
 Run:
 
 ```powershell
-& 'C:\Users\Luka\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' `
+& 'C:\Users\Luka\.agents\skills\econ-paper-rigor\.venv\Scripts\python.exe' `
   'C:\Users\Luka\.codex\skills\.system\plugin-creator\scripts\read_marketplace_name.py'
-& 'C:\Users\Luka\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' `
+& 'C:\Users\Luka\.agents\skills\econ-paper-rigor\.venv\Scripts\python.exe' `
   'C:\Users\Luka\.codex\skills\.system\plugin-creator\scripts\update_plugin_cachebuster.py' `
   'C:\Users\Luka\plugins\academic-typesetting'
 ```
@@ -310,10 +310,10 @@ Run:
 ```powershell
 & 'C:\Users\Luka\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' `
   -m unittest discover -s 'C:\Users\Luka\plugins\academic-typesetting\tests' -v
-& 'C:\Users\Luka\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' `
+& 'C:\Users\Luka\.agents\skills\econ-paper-rigor\.venv\Scripts\python.exe' `
   'C:\Users\Luka\.codex\skills\.system\skill-creator\scripts\quick_validate.py' `
   'C:\Users\Luka\plugins\academic-typesetting\skills\academic-typesetting'
-& 'C:\Users\Luka\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' `
+& 'C:\Users\Luka\.agents\skills\econ-paper-rigor\.venv\Scripts\python.exe' `
   'C:\Users\Luka\.codex\skills\.system\plugin-creator\scripts\validate_plugin.py' `
   'C:\Users\Luka\plugins\academic-typesetting'
 Push-Location 'C:\Users\Luka\.agents\skills\econ-paper-rigor'

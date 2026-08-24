@@ -75,6 +75,20 @@ in the bibliography:
 [^identification]: Identification requires the stated assumptions.
 ```
 
+## LaTeX and editable `.tex` source
+
+For a LaTeX target, write editable `.tex` source with semantic sectioning and
+native commands. Use `\section{...}` and its hierarchy for structure,
+`\textbf{...}` and `\emph{...}` for emphasis, `$...$` for inline math, and
+`\[...\]` or the manuscript's existing equation environment for display math.
+Use native tables and captions, preserve `\label{...}`/`\ref{...}` pairs, keep
+citations compatible with the manuscript's bibliography toolchain, and use
+`\footnote{...}` for explanatory notes.
+
+Creating editable `.tex` source does not require installing a TeX distribution
+or running compilation. Compile only when the requester separately asks for a
+compiled artifact and an existing toolchain is available.
+
 ## Conversion, preservation, and fallback
 
 Keep Markdown as the canonical source for new text-first manuscripts. For DOCX

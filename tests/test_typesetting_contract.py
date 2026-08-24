@@ -18,6 +18,34 @@ class TypesettingContractTests(unittest.TestCase):
         self.assertIn("editable equations", reference.lower())
         self.assertIn("conversion loss", reference.lower())
 
+    def test_latex_route_preserves_academic_structure_without_requiring_tex(self):
+        """Catches omitting editable .tex output or making compilation mandatory."""
+        root = Path(__file__).resolve().parents[1]
+        reference = (
+            root / "references" / "typesetting-and-formatting.md"
+        ).read_text(encoding="utf-8")
+
+        for required in (
+            "latex",
+            ".tex",
+            "\\section",
+            "\\textbf",
+            "\\emph",
+            "inline math",
+            "display math",
+            "tables",
+            "captions",
+            "\\label",
+            "\\ref",
+            "citations",
+            "\\footnote",
+            "tex distribution",
+            "compilation",
+            "existing toolchain",
+        ):
+            with self.subTest(required=required):
+                self.assertIn(required, reference.lower())
+
 
 if __name__ == "__main__":
     unittest.main()
