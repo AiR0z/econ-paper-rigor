@@ -257,6 +257,21 @@ class DocxProductionTests(unittest.TestCase):
             self.assertFalse(Path(request.output).exists())
             self.assertEqual(list(project.rglob("*.tmp.docx")), [])
 
+    def test_produce_versions_around_preexisting_receipt_without_deleting_it(self):
+        with tempfile.TemporaryDirectory() as directory:
+            project = Path(directory)
+            request = self._request(project)
+            receipt = Path(request.output).with_suffix(".docx.receipt.json")
+            receipt.parent.mkdir(parents=True, exist_ok=True)
+            receipt.write_text('{"owner":"author"}\n', encoding="utf-8")
+
+            result = produce(request, runner=FakePandocRunner())
+
+            self.assertEqual(Path(result["output"]).name, "paper-v2.docx")
+            self.assertEqual(
+                receipt.read_text(encoding="utf-8"), '{"owner":"author"}\n'
+            )
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -19,7 +19,6 @@ from research_artifacts import (
     ensure_within,
     redact_secrets,
     sha256_file,
-    versioned_path,
 )
 
 
@@ -73,6 +72,21 @@ def _relative_or_name(project: Path, path: Path) -> str:
         return path.name
 
 
+def _receipt_path(output: Path) -> Path:
+    return output.with_suffix(output.suffix + ".receipt.json")
+
+
+def _available_output(requested: Path) -> Path:
+    candidate = requested
+    version = 1
+    while candidate.exists() or _receipt_path(candidate).exists():
+        version += 1
+        candidate = requested.with_name(
+            f"{requested.stem}-v{version}{requested.suffix}"
+        )
+    return candidate
+
+
 def _pandoc_version(pandoc: str, runner) -> str:
     result = runner(
         [pandoc, "--version"], check=False, capture_output=True, text=True
@@ -92,7 +106,7 @@ def produce(
     requested_output = ensure_within(project, Path(request.output))
     if requested_output.suffix.lower() != ".docx":
         raise ValueError("output must use the .docx extension")
-    output = versioned_path(requested_output)
+    output = _available_output(requested_output)
     output.parent.mkdir(parents=True, exist_ok=True)
 
     bibliography = (
@@ -132,7 +146,7 @@ def produce(
     command.extend(["--output", str(temporary)])
 
     finalized = False
-    receipt_path = output.with_suffix(output.suffix + ".receipt.json")
+    receipt_path = _receipt_path(output)
     try:
         result = runner(command, check=False, capture_output=True, text=True)
         if result.returncode != 0:
@@ -178,7 +192,6 @@ def produce(
         temporary.unlink(missing_ok=True)
         if finalized:
             output.unlink(missing_ok=True)
-        receipt_path.unlink(missing_ok=True)
         raise
 
 
